@@ -22,21 +22,9 @@ function Main() {
     });
   };
 
-  // useEffect(() => {
-  //   api.findEvents().then((eventsFromApi) => {
-  //     setEvents(eventsFromApi);
-  //   });
-  // }, []);
-
-  //   useEffect(() => {
-  //     api.findEventTypeById().then((eventsFromApi) => {
-  //     setEvents(eventsFromApi);
-  //   });
-  // }, []);
-
   return (
     <div>
-      <Filters classifications={classifications} getSegmentId={getSegmentId} />
+      <Filters classifications={classifications} getSegmentId={getSegmentId} setisLoading={setisLoading}/>
       <EventList events={events} isLoading={isLoading} />
     </div>
   );

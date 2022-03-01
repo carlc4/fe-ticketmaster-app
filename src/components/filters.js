@@ -1,4 +1,4 @@
-function Filters({ classifications, getSegmentId }) {
+function Filters({ classifications, getSegmentId, setisLoading }) {
   return (
     <>
       <h2>Filter your events</h2>
@@ -10,6 +10,7 @@ function Filters({ classifications, getSegmentId }) {
                 key={segment.name}
                 onClick={(event) => {
                   {
+                    setisLoading(true)
                     getSegmentId(segment.id);
                     event.preventDefault();
                   }
