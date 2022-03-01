@@ -32,3 +32,8 @@
 .btn_cursor {
   cursor:pointer;
 }
+
+.btn__spacing {
+  margin : 5px
+
+}

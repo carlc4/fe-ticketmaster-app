@@ -15,16 +15,17 @@ function Main() {
     });
   }, []);
 
-  const getSegmentId = (childData) => {
-    api.findEventTypeById(childData).then((eventsFromApi) => {
+  const selectEvents = (segmentId) => {
+    api.findEventsById(segmentId).then((eventsFromApi) => {
       setEvents(eventsFromApi);
       setisLoading(false);
     });
   };
 
+
   return (
     <div>
-      <Filters classifications={classifications} getSegmentId={getSegmentId} setisLoading={setisLoading}/>
+      <Filters classifications={classifications} selectEvents={selectEvents} setisLoading={setisLoading}/>
       <EventList events={events} isLoading={isLoading} />
     </div>
   );

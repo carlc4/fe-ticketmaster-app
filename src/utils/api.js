@@ -12,6 +12,7 @@ export function findEvents() {
     });
 }
 
+
 export function findClassifications() {
   return fetch(
     `https://app.ticketmaster.com/discovery/v2/classifications.json?${apiKey}`
@@ -22,12 +23,14 @@ export function findClassifications() {
     });
 }
 
-export function findEventTypeById(eventTypeId) {
+
+export function findEventsById(segmentId='KZFzniwnSyZfZ7v7n1', countryCode='GB') {
   return fetch(
-    `https://app.ticketmaster.com/discovery/v2/events.json?size=50&${apiKey}&classificationId=${eventTypeId}`
+    `https://app.ticketmaster.com/discovery/v2/events?${apiKey}&locale=*&countryCode=${countryCode}&classificationId=${segmentId}`
   )
     .then((response) => response.json())
     .then((data) => {
       return data._embedded.events;
     });
 }
+

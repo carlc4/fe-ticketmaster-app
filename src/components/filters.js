@@ -1,8 +1,11 @@
-function Filters({ classifications, getSegmentId, setisLoading }) {
+function Filters({ classifications, selectEvents, setisLoading }) {
   return (
     <>
       <h2>Filter your events</h2>
+      
+      
       <div className="filter__buttons">
+          {console.log(classifications)}
           {classifications.map(({ segment }) => {
             return (<>
                 <footer className="pv4 ph2 tc-l ">
@@ -10,7 +13,7 @@ function Filters({ classifications, getSegmentId, setisLoading }) {
                 onClick={(event) => {
                   {
                     setisLoading(true)
-                    getSegmentId(segment.id);
+                    selectEvents(segment.id);
                     event.preventDefault();
                   }
                 }}>
