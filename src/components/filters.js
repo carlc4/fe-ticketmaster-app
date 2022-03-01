@@ -2,25 +2,25 @@ function Filters({ classifications, getSegmentId, setisLoading }) {
   return (
     <>
       <h2>Filter your events</h2>
-      <div className="filters__container">
-        <form>
+      <div className="filter__buttons">
           {classifications.map(({ segment }) => {
-            return (
-              <button
-                key={segment.name}
+            return (<>
+                <footer className="pv4 ph2 tc-l ">
+                    <a className="btn_cursor no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2" title={segment.name} key={segment.name}
                 onClick={(event) => {
                   {
                     setisLoading(true)
                     getSegmentId(segment.id);
                     event.preventDefault();
                   }
-                }}
-              >
-                {segment.name}
-              </button>
+                }}>
+                    
+                    <span className="f6 ml3 pr2">{segment.name}</span>
+                    </a>
+                </footer>
+              </>
             );
           })}
-        </form>
       </div>
     </>
   );
